@@ -1,0 +1,31 @@
+ Family: student 
+  Links: mu = identity; sigma = identity; nu = identity 
+Formula: shock ~ 1 + TRAITmean + TRAITdiff + STATEmean + STATEdiff + buttPress + (1 | gr(Pair, dist = "student")) 
+   Data: df (Number of observations: 57) 
+Samples: 4 chains, each with iter = 20000; warmup = 10000; thin = 1;
+         total post-warmup samples = 40000
+
+Group-Level Effects: 
+~Pair (Number of levels: 57) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+df               34.53     17.87     9.74    78.13 1.01      581      927
+sd(Intercept)     0.91      0.45     0.06     1.61 1.00      495     1908
+
+Population-Level Effects: 
+          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept     0.00      0.20    -0.39     0.39 1.00     3353     2634
+TRAITmean    -0.18      0.25    -0.67     0.32 1.00     4741     2190
+TRAITdiff     0.26      0.20    -0.15     0.66 1.00    13212    19427
+STATEmean     0.34      0.26    -0.16     0.86 1.00     5639    17951
+STATEdiff     0.00      0.20    -0.39     0.40 1.00    12408    20081
+buttPress     0.01      0.21    -0.40     0.42 1.00     5870    12726
+
+Family Specific Parameters: 
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.92      0.45     0.10     1.62 1.01      317      250
+nu       34.35     18.87     8.98    79.94 1.00     3174     2719
+
+Samples were drawn using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+========= Summary of region effects for Intercept (RBA results) =========
