@@ -28,8 +28,8 @@ output: data/uncon_v_con_stressor.txt
 #### __BML analysis__  
 Requirements to run BML: 
 > R version 3.6.0 (or higher)  
-> brms (version 2.14.0)
-> tidyverse (version 1.3.0)
+> brms (version 2.14.0)  
+> tidyverse (version 1.3.0)  
 
 To run BML analysis
 ```
