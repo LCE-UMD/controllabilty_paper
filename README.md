@@ -4,7 +4,7 @@
 ---
 
 #### __Preprocessing__  
-First get the behavioral and STAI scores that with form covarites in the model.
+Get button-presses and STAI scores for all participants.
 
 To extract total number of button presses:
 ```
