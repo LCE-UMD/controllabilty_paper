@@ -55,8 +55,8 @@ def main(args):
             df = pd.concat([df,tmp_df],ignore_index=True)
         
     # Load the covariate file
-    cov_list= ["Pair","TRAITmean","TRAITdiff","STATEmean","STATEdiff","buttPress"]
-    cov = pd.read_csv('/home/climbach/Pessoa_Lab/controllability_paper/data/ROIwise/uncon_v_con_stressor.txt',
+    cov_list= ["Pair","TRAITmean","TRAITdiff","STATEmean","STATEdiff","BPdiff"]
+    cov = pd.read_csv('data/ROIwise/uncon_v_con_stressor.txt',
                       sep='\t')[cov_list].drop_duplicates()
     cov.reset_index(drop=True,inplace=True)
     
