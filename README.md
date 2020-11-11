@@ -128,12 +128,16 @@ Outputs in `results/voxelwise/uncon_v_con_left_insula_11ROIs/`:
 To combine the voxelwise fixed and random effect posteriors and compute the posterior probabilities (`P+`) and render onto the MNI brain for visualization:  
 For __right insula__,  
 ```
-$ python 09-uncon_v_con_insula_voxelwise_stressor_posteriors.py -m data/masks/right_insula_10ROIs.nii.gz -o results/voxelwise  
+$ python 09-uncon_v_con_insula_voxelwise_stressor_posteriors.py \
+    -m data/masks/right_insula_10ROIs.nii.gz \
+    -o results/voxelwise  
 ```
 
 For __left insula__,
 ```
-$ python 09-uncon_v_con_insula_voxelwise_stressor_posteriors.py -m data/masks/left_insula_11ROIs.nii.gz -o results/voxelwise
+$ python 09-uncon_v_con_insula_voxelwise_stressor_posteriors.py \
+    -m data/masks/left_insula_11ROIs.nii.gz \
+    -o results/voxelwise
 ```
 
 Outputs:
