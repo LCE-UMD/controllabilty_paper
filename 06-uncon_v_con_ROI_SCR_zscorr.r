@@ -3,7 +3,7 @@ library(tidyverse) # needed for data manipulation.
 
 # Create a result directory
 outdir <- "results/ROIwise/uncon_v_con_ROI_SCR"
-if (!dir.exists(outdir)){dir.create(outdir)}
+if (!dir.exists(outdir)){dir.create(outdir,recursive = TRUE)}
 
 df <- read.table('data/ROIwise/uncon_v_con_ROI_SCR_zscorr.txt',header = TRUE,sep='\t')
 

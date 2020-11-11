@@ -37,7 +37,7 @@ print(priorRBA)
 
 # Create a result directory
 outdir <- "results/ROIwise/uncon_v_con_stressor"
-if (!dir.exists(outdir)){dir.create(outdir)}
+if (!dir.exists(outdir)){dir.create(outdir,recursive = TRUE)}
 
 # Generate the Stan code for our own reference
 stan_code <- make_stancode(modelForm,
