@@ -36,3 +36,4 @@ if __name__ == '__main__':
         os.makedirs(args.output,exist_ok=True)
         df = _get_STAI()
         df.to_csv(args.output+'/STAI_scores.txt',sep='\t',index=False)
+        
