@@ -90,13 +90,13 @@ def make_df(args):
     uncontrol = df[df['Group']=='uncontrol'][['beta','buttPress','TRAIT','STATE']]
 
     final_df = uncontrol.subtract(control)
-    final_df.rename(columns={'TRAIT':'TRAITdiff','STATE':'STATEdiff'},inplace=True)
+    final_df.rename(columns={'TRAIT':'TRAITdiff','STATE':'STATEdiff','buttPress':'BPdiff'},inplace=True)
     final_df['TRAITmean'] = uncontrol.add(control)['TRAIT']/2 
     final_df['STATEmean'] = uncontrol.add(control)['STATE']/2
 
     final_df = final_df[['beta']].join(standardize(final_df[['TRAITmean','TRAITdiff',
                                                              'STATEmean','STATEdiff',
-                                                             'buttPress']]))
+                                                             'BPdiff']]))
     return final_df
 
 if __name__ == '__main__':
