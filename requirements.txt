@@ -1,0 +1,6 @@
+pandas==1.1.1
+numpy==1.19.1
+sklearn==0.0
+scipy==1.5.2
+math
+nilearn==0.6.1

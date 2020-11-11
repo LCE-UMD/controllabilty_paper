@@ -1,11 +1,11 @@
 library(brms)
 library(tidyverse) # needed for data manipulation.
 
-df <- read.table('DATA/uncon_v_con_ROI_SCR_zscorr.txt',header = TRUE,sep='\t')
-
 # Create a result directory
-outdir <- "results/uncon_v_con_ROI_SCR"
+outdir <- "results/ROIwise/uncon_v_con_ROI_SCR"
 if (!dir.exists(outdir)){dir.create(outdir)}
+
+df <- read.table('data/ROIwise/uncon_v_con_ROI_SCR_zscorr.txt',header = TRUE,sep='\t')
 
 ################################ left BST ##################################
 # Filter out all ROIs except left BST

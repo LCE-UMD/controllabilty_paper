@@ -1,6 +1,6 @@
 require(brms)
 
-outdir <- 'results/uncon_v_con_stressor/'
+outdir <- 'results/ROIwise/uncon_v_con_stressor/'
 
 # Load the BML output image
 load(paste0(outdir,'results.RData'))

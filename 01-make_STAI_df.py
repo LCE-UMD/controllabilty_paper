@@ -23,7 +23,8 @@ if __name__ == '__main__':
     
     parser = argparse.ArgumentParser(description='gets every participants state and trait scores')
     parser.add_argument('-o','--output',type=str,
-                        help='output path to save the button press df')
+                        help='output path to save the button press df',
+                        default='data/behavioral')
     parser.add_argument('--overwrite',type=int,default=0,
                         help='overwrite the existing file? (0 or 1)')
     

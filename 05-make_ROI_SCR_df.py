@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 import os
-from os.path import join, exists
+from os.path import join, exists, dirname
 
 from scipy.stats import spearmanr
 import math
@@ -44,7 +44,7 @@ def get_zcorr_df(df,rois):
 
     return rba_df
 
-def make_df():
+def make_df(args):
     # load trail-by-trial SCR and ROI stressor responses
     df = pd.DataFrame()
     for i, row in yoked.iterrows():
@@ -74,8 +74,8 @@ def make_df():
     rba_df['control'] = rba_df['control'].astype(float)
     
     # load covariates
-    bpd = pd.read_csv('DATA/button_presses.txt',sep='\t')
-    STAI = pd.read_csv('DATA/STAI_scores.txt',sep='\t')
+    bpd = pd.read_csv(dirname(args.output)+'/behavioral/button_presses.txt',sep='\t')
+    STAI = pd.read_csv(dirname(args.output)+'/behavioral/STAI_scores.txt',sep='\t')
 
     # combine covariates
     cov_df = pd.merge(bpd,STAI,how='left')
@@ -116,7 +116,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Extracts every participants stressor responses from 24 ROIs, standardizes covariates and returns a dataframe ready for BML analysis.')
     
     parser.add_argument('-o','--output',type=str,
-                        help='output path to save the output df')
+                        help='output path to save the output df',
+                        default='data/ROIwise')
     parser.add_argument('--overwrite',type=int,default=0,
                         help='overwrite the existing file? (0 or 1)')
     
@@ -126,7 +127,7 @@ if __name__ == '__main__':
         raise OSError(args.output+"/uncon_v_con_ROI_SCR_zscorr.txt: File exists. Use '-overwrite 1' to overwrite")
     else:
         os.makedirs(args.output,exist_ok=True)
-        df = make_df()
+        df = make_df(args)
         df.to_csv(args.output+'/uncon_v_con_ROI_SCR_zscorr.txt',sep='\t',
                   index=False,float_format='%.5f')
     

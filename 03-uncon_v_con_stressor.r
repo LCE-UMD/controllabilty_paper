@@ -1,7 +1,7 @@
 library(brms)
 library(tidyverse) # needed for data manipulation.
 
-df <- read.table('DATA/uncon_v_con_stressor.txt',header = TRUE,sep = "\t")
+df <- read.table('data/ROIwise/uncon_v_con_stressor.txt',header = TRUE,sep = "\t")
 head(df)
 
 iterations <- 10000
@@ -36,7 +36,7 @@ priorRBA$prior[12] <- "gamma(3.325,0.1)"
 print(priorRBA)
 
 # Create a result directory
-outdir <- "results/uncon_v_con_stressor"
+outdir <- "results/ROIwise/uncon_v_con_stressor"
 if (!dir.exists(outdir)){dir.create(outdir)}
 
 # Generate the Stan code for our own reference
