@@ -36,7 +36,7 @@ ns <- iterations*chains/2
 # number of sigfigs to show on the table
 nfigs <- 4
 
-mod = '1 + TRAITmean + TRAITdiff + STATEmean + STATEdiff + buttPress'
+mod = '1 + TRAITmean + TRAITdiff + STATEmean + STATEdiff + BPdiff'
 modelForm = paste('Y ~', mod,'+ (1 | gr(Subj, dist= "student")) + (',mod,'| gr(ROI, dist="student")) + (',mod,'|gr(VOX, dist="student"))')
 print('Model Formula:')
 print(modelForm)
