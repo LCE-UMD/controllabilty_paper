@@ -26,7 +26,7 @@ print(getOption("mc.cores"))
 options(mc.cores = parallel::detectCores())
 print(getOption("mc.cores"))
 
-mod = ' 1 + TRAITmean + TRAITdiff + STATEmean + STATEdiff + buttPress'
+mod = ' 1 + TRAITmean + TRAITdiff + STATEmean + STATEdiff + BPdiff'
 modelForm = paste('beta ~',mod,'+ (1 | gr(Pair, dist= "student")) + (',mod,'| gr(ROI, dist="student"))')
 priorRBA <- get_prior(formula = modelForm,data=df,family = 'student')
 priorRBA$prior[1] <- "student_t(3,0,10)"
