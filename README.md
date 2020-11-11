@@ -39,6 +39,7 @@ The output contains following standardized covariates:
 - TRAITdiff: trait difference of the yoked participants (uncontrollable - contollable).  
 - STATEmean: average state scores of the yoked participants.  
 - STATEdiff: state difference of the yoked participants.  
+- BPdiff: difference in the total number of button-presses in the yoked participants (uncontrollable - contollable).  
 
 #### __BML analysis__  
 
@@ -47,13 +48,13 @@ To run BML analysis
 $ Rscript 03-uncon_v_con_stressor.r
 ```
 output: (R workspace) `uncon_v_con_stressor/results.RData`  
-The BML output is saved as results/uncon_v_con_stressor/results.RDtata.
 
-To extract posteriors:
+To extract posteriors from the saved R workspace:
 ```
 $ Rscript 04-uncon_v_con_stressor_posteriors.r
 ```
-output: (posterior) `results/uncon_v_con_stressor/*.txt`  
+outputs in `results/uncon_v_con_stressor/`:
+- ROI posteriors for __uncontrollability > controllability__ contrast (Paper: `Figure 3`): `Intercept_post.txt`  
 
 ## Brain-skin conductance correlation
 ---
@@ -70,10 +71,10 @@ To run BML analysis on the left and right BST-skin conductance correlations:
 $ Rscript 06-uncon_v_con_ROI_SCR_zscorr.r
 ```
 
-output:  
-    (R workspace) `results/uncon_v_con_ROI_SCR/results.RData`  
-    (posterior) `results/uncon_v_con_ROI_SCR/uncon_v_con_lBST_SCR_corr.txt`  
-    (posterior) `results/uncon_v_con_ROI_SCR/uncon_v_con_rBST_SCR_corr.txt`  
+outputs in `results/uncon_v_con_ROI_SCR`:  
+- (R workspace): `results.RData`  
+- Posterior for Left BST & skin conductance correlation (Paper: `Figure 5`): `uncon_v_con_lBST_SCR_corr.txt`  
+- Posterior for Right BST & skin conductance correlation (Paper: `Figure 5`): `uncon_v_con_rBST_SCR_corr.txt`  
 
 ## Bayesian multilevel analysis of insula voxels
 ---
