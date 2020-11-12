@@ -9,23 +9,41 @@ R requirements:
 > R version 3.6.0 (or higher)  
 > Libriaries: brms (version 2.14.0), tidyverse (version 1.3.0)  
 
+## Data
+```
+    |-- data
+        |-- CON_yoked_table.xlsx                 <- Participant IDs and usable runs.
+        |-- CON_yoked_table_SCR.xlsx
+        |-- behavioral
+            |-- button_presses.txt               <- Total number of button presses.  
+            |-- STAT_score.txt                   <- State and Trait scores.
+        |-- masks
+            |-- emoproxII_ROIs_final.nii.gz      <- 24 ROI mask.
+            |-- emoproxII_ROIs_final_info.txt    <- ROI information.
+            |-- left_insula_11ROIs.nii.gz        <- left insula mask with 11 sub-ROIs.
+            |-- right_insula_10ROIs.nii.gz       <- right insula mask with 10 sub-ROIs.
+        |-- ROIwise
+            |-- uncon_v_con_stressor.txt         <- Brain (24 ROIs) stressor response.
+            |-- uncon_v_con_ROI_SCR_zscorr.txt   <- Brain-skin conductance response (SCR)
+                                                    correlation.
+        |-- subjects
+            |-- skin_conductance
+                |-- CON???_bucket_LSS.1D         <- participant's trial-by-trail
+                                                    SCR response to stresssor.
+            |-- stressor_canonical
+                |-- CON???_bucket_REML.1D        <- participant's ROI response to stressor.
+            |-- stressor_canonical_voxelwise
+                |-- CON???_shock_beta.nii.gz     <- participant's whole-brain response 
+                                                    to stressor.
+            |-- stressor_trial_by_trail          
+                |-- CON???_betas_3dLSS.1D        <- participant's trial-by-trail
+                                                    ROI response to stresssor.
+```  
+
 ## Bayesian multilevel analysis at the level of region of interest
 ---
 
 #### __Preprocessing__  
-Get total number button-presses and STAI scores for all participants.
-
-To extract total number of button presses:
-```
-$ python 00-make_buttonPress_df.py  
-```
-Output: `data/button_presses.txt`  
-
-To get STAI (state and trait) scores:
-```
-$ python 01-make_STAI_df.py  
-```
-Output: `data/STAI_scores.txt`  
 
 To extract stressor response from 24 ROIs along with standardized
 covariates:
