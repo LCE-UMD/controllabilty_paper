@@ -7,13 +7,16 @@ from nilearn.masking import apply_mask, unmask
 import argparse
 
 # Define path to the shock beta map of every subject
-eCON = '/data/bswift-1/Pessoa_Lab/eCON'
-voxelwise_path = join(eCON,'dataset/results_ShockUncensored/{subj}/{group}lable/splitted_regs/shock_analysis/noProx/buttonPress/{subj}_shock_beta.nii.gz')
+DATA = 'data'
+SUBJECTS = 'data/subjects'
+
+voxelwise_path = join(SUBJECTS,'stressor_canonical_voxelwise/{subj}_shock_beta.nii.gz')
+#eCON = '/data/bswift-1/Pessoa_Lab/eCON'
+#voxelwise_path = join(eCON,'dataset/results_ShockUncensored/{subj}/{group}lable/splitted_regs/shock_analysis/noProx/buttonPress/{subj}_shock_beta.nii.gz')
 
 # load the csv file that contains the list of yoked-participaths
-yoked = pd.read_excel(join(eCON,'onsetdir/CON_yoked_table.xlsx'))
+yoked = pd.read_excel(join(DATA,'CON_yoked_table.xlsx'))
 yoked = yoked.query('use == 1')
-
 
 def getSubMask(indx,mask):
     '''
