@@ -8,19 +8,21 @@ import glob as glob
 import argparse
 
 # Project folder path
-eCON = '/data/bswift-1/Pessoa_Lab/eCON'
+DATA = 'data'
+SUBJECTS = 'data/subjects'
 
 # Path beta estimate text files for every subject
-bucket_path = join(eCON,'dataset/results_ShockUncensored/{subj}/{group}/splitted_regs/emoproxII_ROIs_final_new/noProx/buttonPress/{subj}_bucket_REML_clean.1D')
+bucket_path = join(SUBJECTS,'stressor_canonical/{subj}_bucket_REML_clean.1D')
 
 # load ROI information
-rois = pd.read_csv(join(eCON,'ROI_masks/EmoproxII_ROIs_final/readme_new.txt'),
-                   sep='\t',index_col='Index')
+#rois = pd.read_csv(join(eCON,'ROI_masks/EmoproxII_ROIs_final/readme_new.txt'),
+#                   sep='\t',index_col='Index')
+rois = pd.read_csv(join(DATA,'masks/emoproxII_ROIs_final_info.txt'),sep='\t',index_col='Index')
 rois = rois['ROI'].to_dict()
 print('Total number of ROIs: ',len(rois.keys()))
 
 # load yoked participant info
-yoked = pd.read_excel(join(eCON,'onsetdir/CON_yoked_table.xlsx'))
+yoked = pd.read_excel(join(DATA,'CON_yoked_table.xlsx'))
 yoked = yoked.query('use == 1')
 
 def combine_beta(beta,t):
