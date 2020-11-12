@@ -12,12 +12,12 @@ R requirements:
 ## Data
 ```
     |-- data
-    |-- behavioral
+        |-- behavioral
             |-- button_presses.txt               <- Total number of button presses.  
             |-- STAT_score.txt                   <- State and Trait scores.
         |-- CON_yoked_table.xlsx                 <- Participant IDs and usable runs.
         |-- CON_yoked_table_SCR.xlsx
-    |-- estimated_shock_response.txt             <- stressor response estimates
+        |-- estimated_shock_response.txt             <- stressor response estimates
                                                     for 24 ROIs (paper: Figure 4).
         |-- masks
             |-- emoproxII_ROIs_final.nii.gz      <- 24 ROI mask.
