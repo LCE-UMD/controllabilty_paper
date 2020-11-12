@@ -12,11 +12,13 @@ R requirements:
 ## Data
 ```
     |-- data
-        |-- CON_yoked_table.xlsx                 <- Participant IDs and usable runs.
-        |-- CON_yoked_table_SCR.xlsx
-        |-- behavioral
+    |-- behavioral
             |-- button_presses.txt               <- Total number of button presses.  
             |-- STAT_score.txt                   <- State and Trait scores.
+        |-- CON_yoked_table.xlsx                 <- Participant IDs and usable runs.
+        |-- CON_yoked_table_SCR.xlsx
+    |-- estimated_shock_response.txt             <- stressor response estimates
+                                                    for 24 ROIs (paper: Figure 4).
         |-- masks
             |-- emoproxII_ROIs_final.nii.gz      <- 24 ROI mask.
             |-- emoproxII_ROIs_final_info.txt    <- ROI information.
@@ -65,7 +67,7 @@ To run BML analysis
 ```
 $ Rscript 03-uncon_v_con_stressor.r
 ```
-Output: (R workspace) `uncon_v_con_stressor/results.RData`  
+Output: (R workspace) `results/uncon_v_con_stressor/results.RData`  
 
 To extract posteriors from the saved R workspace:
 ```
@@ -161,3 +163,4 @@ $ python 09-uncon_v_con_insula_voxelwise_stressor_posteriors.py \
 Outputs:
 - Right insula P+ map (Paper: `Figure 6`): `results/voxelwise/uncon_v_con_right_10ROIs/right_insula_10ROIs_Pmap.nii.gz`  
 - Left insula P+ map (Paper: `Figure 6`): `results/voxelwise/uncon_v_con_left_11ROIs/left_insula_11ROIs_Pmap.nii.gz`  
+
