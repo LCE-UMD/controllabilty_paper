@@ -1,0 +1,25 @@
+Index	File	ROI
+1	Amygdala_BLBM_La_L.nii.gz	L Amygdala (BLBM)
+2	Amygdala_BLBM_La_R.nii.gz	R Amygdala (BLBM)
+3	Amygdala_CeME_L.nii.gz	L Amygdala (CeME)
+4	Amygdala_CeME_R.nii.gz	R Amygdala (CeME)
+5	cingulate_mid_anterior_DD_left_2mm_midlineExcluded.nii.gz	L aMCC
+6	cingulate_mid_anterior_DD_right_2mm_midlineExcluded.nii.gz	R aMCC
+7	emoprox1Shock_TianTHA-lh_intersect.nii.gz	L Thalamus (emoproxI shock intersection)
+8	emoprox1Shock_TianTHA-rh_intersect.nii.gz	R Thalamus (emoproxI shock intersection)
+9	Hammers-gm-0.5-2mm-AntDorsal-INS-l.nii.gz	L Anterior dorsal insula
+10	Hammers-gm-0.5-2mm-AntDorsal-INS-r.nii.gz	R Anterior dorsal insula
+11	Hammers-gm-0.5-2mm-MidPosterior-INS-l.nii.gz	L Mid posterior insula
+12	Hammers-gm-0.5-2mm-MidPosterior-INS-r.nii.gz	R Mid posterior insula
+13	Hammers-gm-0.5-anterior_pole_INS-1_2mm.nii.gz	L Anterior ventral insula (anterior pole)
+14	Hammers-gm-0.5-anterior_pole_INS-r_2mm.nii.gz	R Anterior ventral insula (anterior pole)
+15	Hartley_vmPFC_5mm.nii.gz	vmPFC (new 5mm sphere from Hartley paper)
+16	lBNST.nii.gz	L lBST
+17	l-midHippocampus_Wood_Tian_intersect.nii.gz	L Mid Hippocampus
+18	lPAG_Ezra.nii.gz	L PAG
+19	PCC.nii.gz	PCC (1)
+20	PCC2.nii.gz	PCC (2)
+21	rBNST.nii.gz	R BST
+22	r-postHippocampus_Wood_Tian_intersect.nii.gz	R Posterior Hippocampus
+23	rPAG_Ezra.nii.gz	R PAG
+24	vmPFC.nii.gz	vmPFC (from out lab)

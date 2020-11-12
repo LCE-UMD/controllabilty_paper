@@ -1,0 +1,11 @@
+# <AFNI_3D_dataset
+#  self_idcode = "AFN_58j3VK_m0ZbyveiOxKZ1cw"
+#  ni_type     = "20*float"
+#  ni_dimen    = "1,1,1"
+#  ni_delta    = "1,1,1"
+#  ni_origin   = "0,0,0"
+#  ni_axes     = "R-L,A-P,I-S"
+#  ni_timestep = "0.1"
+# >
+ 5.2691 5.93894 10.3859 5.53153 2.46499 3.54279 2.97769 2.68313 4.34485 2.25356 3.4614 3.60912 2.57433 2.52221 2.27489 0.582976 1.44624 2.26691 0.975754 1.27792
+# </AFNI_3D_dataset>
