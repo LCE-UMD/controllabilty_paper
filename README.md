@@ -43,7 +43,7 @@ R requirements:
 ## Bayesian multilevel analysis at the level of region of interest
 ---
 
-#### __Preprocessing__  
+### __Preprocessing__  
 
 To extract stressor response from 24 ROIs along with standardized
 covariates:
@@ -59,7 +59,7 @@ The output contains following standardized covariates:
 - STATEdiff: state difference of the yoked participants.  
 - BPdiff: difference in the total number of button-presses in the yoked participants (uncontrollable - contollable).  
 
-#### __BML analysis__  
+### __BML analysis__  
 
 To run BML analysis
 ```
@@ -76,14 +76,14 @@ Outputs in `results/uncon_v_con_stressor/`:
 
 ## Brain-skin conductance correlation
 ---
-#### __Preprocessing__  
+### __Preprocessing__  
 To extract brain-skin conductance correlations for the 24 ROIs 
 ```
 $ python 05-make_ROI_SCR_df.py  
 ```
 Output: `data/uncon_v_con_ROI_SCR_zscorr.txt`  
 
-#### __BML analysis__
+### __BML analysis__
 To run BML analysis on the left and right BST-skin conductance correlations:
 ```
 $ Rscript 06-uncon_v_con_ROI_SCR_zscorr.r
@@ -96,7 +96,7 @@ Outputs in `results/uncon_v_con_ROI_SCR`:
 
 ## Bayesian multilevel analysis of insula voxels
 ---
-#### __Preprocessing__
+### __Preprocessing__
 **Right Insula**: To extract voxelwise stressor responses for right insula voxels:
 ```
 $ python 07-insulaVoxelwiseStressorResp.py \
@@ -119,7 +119,7 @@ Output: `data/voxelwise/uncon_v_con_left_insula_11ROIs.txt`
 
 `left_insula_11ROIs.nii.gz` is a left insula mask with 11 sub-divisions.  
 
-#### __BML analysis__
+### __BML analysis__
 
 To run BML analysis on __right insula__:
 ```
