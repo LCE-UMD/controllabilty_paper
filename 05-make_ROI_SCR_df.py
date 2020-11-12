@@ -10,14 +10,19 @@ import math
 from sklearn.preprocessing import StandardScaler
 import argparse
 
-eCON = '/data/bswift-1/Pessoa_Lab/eCON'
-SCR_betapath = join(eCON,'SCR_new/dataset/results_ShockUncensored/{subj}/{group}lable/splitted_regs/noProx/buttonPress/shock_IM/{subj}_bucket_LSS.1D')
-roi_betapath = join(eCON,'dataset/results_ShockUncensored/{subj}/{group}lable/splitted_regs/ROI_final/noProx/buttonPress/shock_IM/{subj}_betas_3dLSS.1D') # final (new) rois
-yoked = pd.read_excel(join(eCON,'SCR_new/scripts/CON_yoked_table.xlsx'))
+DATA = 'data'
+SUBJECTS = 'data/subjects'
+
+# paths to subject's trial by estimates
+SCR_betapath = join(SUBJECTS,'skin_conductance/{subj}_bucket_LSS.1D')
+roi_betapath = join(SUBJECTS,'stressor_trial_by_trial/{subj}_betas_3dLSS.1D')
+
+# load yoked participants info
+yoked = pd.read_excel(join(DATA,'CON_yoked_table_SCR.xlsx'))
 yoked = yoked.query('use == 1')
 
 # load ROI information
-rois = pd.read_csv(join(eCON,'ROI_masks/EmoproxII_ROIs_final/readme'),sep='\t',index_col='Index')
+rois = pd.read_csv(join(DATA,'masks/emoproxII_ROIs_final_info.txt'),sep='\t',index_col='Index')
 rois = rois['ROI'].to_dict()
 
 def get_zcorr_df(df,rois):
