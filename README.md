@@ -13,42 +13,48 @@ R requirements:
 ```
     |-- data
         |-- behavioral
-            |-- button_presses.txt               <- Total number of button presses.  
-            |-- STAT_score.txt                   <- State and Trait scores.
-        |-- CON_yoked_table.xlsx                 <- Participant IDs and usable runs.
+            |-- button_presses.txt                  <- Total number of button presses.  
+            |-- STAT_score.txt                      <- State and Trait scores.
+        |-- CON_yoked_table.xlsx                    <- Participant IDs and usable runs.
         |-- CON_yoked_table_SCR.xlsx
         |-- stressor_response_estimates
-            |-- Fig4.txt                         <- stressor response estimates
-                                                    for 24 ROIs (paper: Figure 4).
-            |-- Fig6-left_PI.1D                  <- stressor response estimates 
-                                                    in left posterior insula.
-            |-- Fig6-right_PI.1D                 <- stressor response estimates
-                                                    in right posterior insula.
-            |-- Fig7-PCC.txt                     <- stressor response estimates
-                                                    in posterior cingulate cortex.
-            |-- Fig8-MFG                         <- stressor response estimates
-                                                    in middle frontal gyrus.
+            |-- Fig4.txt                            <- stressor response estimates
+                                                       for 24 ROIs (paper: Figure 4).
+            |-- Fig6-left_PI.1D                     <- stressor response estimates 
+                                                       in left posterior insula.
+            |-- Fig6-right_PI.1D                    <- stressor response estimates
+                                                       in right posterior insula.
+            |-- Fig7-PCC.txt                        <- stressor response estimates
+                                                       in posterior cingulate cortex.
+            |-- Fig8-MFG                            <- stressor response estimates
+                                                       in middle frontal gyrus.
         |-- masks
-            |-- emoproxII_ROIs_final.nii.gz      <- 24 ROI mask.
-            |-- emoproxII_ROIs_final_info.txt    <- ROI information.
-            |-- left_insula_11ROIs.nii.gz        <- left insula mask with 11 sub-ROIs.
-            |-- right_insula_10ROIs.nii.gz       <- right insula mask with 10 sub-ROIs.
+            |-- emoproxII_ROIs_final.nii.gz         <- 24 ROI mask.
+            |-- emoproxII_ROIs_final_info.txt       <- ROI information.
+            |-- left_insula_11ROIs.nii.gz           <- left insula mask with 11 sub-ROIs.
+            |-- right_insula_10ROIs.nii.gz          <- right insula mask with 10 sub-ROIs.
         |-- ROIwise
-            |-- uncon_v_con_stressor.txt         <- Brain (24 ROIs) stressor response.
-            |-- uncon_v_con_ROI_SCR_zscorr.txt   <- Brain-skin conductance response (SCR)
-                                                    correlation.
+            |-- uncon_v_con_stressor.txt            <- Brain (24 ROIs) stressor response
+                                                       (created by 02-extra_stressor_resp.py).
+            |-- uncon_v_con_ROI_SCR_zscorr.txt      <- Brain-skin conductance response (SCR) 
+                                                       correlation (created by 05-make_ROI_SCR_df.py).
         |-- subjects
             |-- skin_conductance
-                |-- CON???_bucket_LSS.1D         <- participant's trial-by-trail
-                                                    SCR response to stresssor.
+                |-- CON???_bucket_LSS.1D            <- participant's trial-by-trail
+                                                       SCR response to stresssor.
             |-- stressor_canonical
-                |-- CON???_bucket_REML.1D        <- participant's ROI response to stressor.
+                |-- CON???_bucket_REML.1D           <- participant's ROI response to stressor.
             |-- stressor_canonical_voxelwise
-                |-- CON???_shock_beta.nii.gz     <- participant's whole-brain response 
-                                                    to stressor.
+                |-- CON???_shock_beta.nii.gz        <- participant's whole-brain response 
+                                                       to stressor.
             |-- stressor_trial_by_trail          
-                |-- CON???_betas_3dLSS.1D        <- participant's trial-by-trail
-                                                    ROI response to stresssor.
+                |-- CON???_betas_3dLSS.1D           <- participant's trial-by-trail
+                                                       ROI response to stresssor.
+        |-- voxelwise
+            |-- uncon_v_con_right_insula_10ROIs.txt <- Right insula voxelwise stressor response
+                                                       (created by 07-insulaVoxelwiseStressorResp.py).
+            |-- uncon_v_con_left_insula_11ROIs.txt  <- Left insula voxelwise stressor response
+                                                       (created by 07-insulaVoxelwiseStressorResp.py).
 ```  
 
 ## Bayesian multilevel analysis at the level of region of interest
