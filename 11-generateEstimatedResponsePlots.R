@@ -1,11 +1,9 @@
 library(tidyverse)
-library(plyr)
 library(here)
+# plyr is also required but not front loaded because of conflicts with here package
 
 
-
-
-df <- read.table('/Users/kellymorrow/Downloads/06-ShockResp_emoproxII_ROIs_final_new.txt', sep = ',', header = TRUE)
+df <- read.table(here('data/stressor_response_estimates','Fig4.txt'), sep = ',', header = TRUE)
 x.axis.breaks <- seq(from = 0, to = 13.75, by = 3)
 x.axis.labs <- c("0.00",  "3.00",  "6.00", " 9.00", "12.00")
 x.axis.expand <- c(0.0,0.0)
@@ -140,7 +138,7 @@ P.ROIs$ROI <- factor(P.ROIs$ROI, levels = c("L lBST",
                                             "R Thalamus (emoproxI shock intersection)"))
 
 # change ROI names to something plotting appropriate
-P.ROIs$ROI <- revalue(P.ROIs$ROI, c("L lBST" = "L BST",
+P.ROIs$ROI <- plyr::revalue(P.ROIs$ROI, c("L lBST" = "L BST",
                                     "R BST" = "R BST",
                                     "L Anterior dorsal insula" = "L dorsal anterior Insula",
                                     "L Thalamus (emoproxI shock intersection)"  = "L Thalamus",
@@ -159,9 +157,9 @@ P <- c("P+ = 0.998",
        "P+ = 0.901",
        "P+ = 0.883")
 
-P.ROIs <- P.ROIs %>%
-  mutate(P = rep(P, each = length(unique(Time))*2)) %>%
-  arrange(ROI)
+P <- rep(P, each = length(unique(P.ROIs$Time))*2)
+P.ROIs <- P.ROIs %>% arrange(ROI) %>% add_column(P)
+
 
 # Panel b: positive-going ROIs
 
@@ -189,7 +187,7 @@ Pos$ROI <- factor(Pos$ROI, levels = c("L aMCC",
                                       "L PAG",
                                       "R PAG"))
 
-Pos$ROI <- revalue(Pos$ROI, c("L aMCC" = "L aMCC",
+Pos$ROI <- plyr::revalue(Pos$ROI, c("L aMCC" = "L aMCC",
                               "R aMCC" = "R aMCC",
                               "L Anterior ventral insula (anterior pole)" = "L ventral anterior Insula",
                               "R Anterior ventral insula (anterior pole)" = "R ventral anterior Insula",
@@ -217,7 +215,7 @@ Neg$ROI <- factor(Neg$ROI,levels = c("vmPFC (from out lab)",
                                      "R Posterior Hippocampus"))
 
 # rename to something plot appropriate
-Neg$ROI <- revalue(Neg$ROI, c("vmPFC (from out lab)" = "anterior vmPFC",
+Neg$ROI <- plyr::revalue(Neg$ROI, c("vmPFC (from out lab)" = "anterior vmPFC",
                               "vmPFC (new 5mm sphere from Hartley paper)" = "posterior vmPFC",
                               "PCC (1)" = "PCC/Precuneus",
                               "PCC (2)" = "PCC",
@@ -268,13 +266,14 @@ P.plot <- ggplot(P.ROIs, aes(x = Time, y = Mean, color = Group, label = P)) +
   labs(x ="Time (seconds)", y = "% signal change", color = NULL, title =NULL) +
   theme
 
+
 ggsave(here("plots","Fig4-PanelA_8ROIs.pdf"),dpi = 600, height = 57, width = 115, unit = "mm")
 
 print("Panel 4a done.")
 
 # panel b plotting
 
-ggplot(Pos, aes(x = Time, y = Mean, color = Group)) +
+pos.plot <- ggplot(Pos, aes(x = Time, y = Mean, color = Group)) +
   geom_hline(yintercept = 0, linetype = "dashed", color = "dimgray", size = .5) +
   geom_point(size = .3) +
   geom_line(size = .7) +
@@ -290,7 +289,7 @@ ggplot(Pos, aes(x = Time, y = Mean, color = Group)) +
   labs(x = "Time (seconds)", y = "% signal change", title = NULL, color = NULL) +
   theme
 
-ggsave(here("plots","Fig4-PanelB_posROIs.pdf"),dpi = 600, height = 62, width = 150, unit = "mm")
+ggsave(here('plots','Fig4-PanelB_posROIs.pdf'), plot = pos.plot ,dpi = 600, height = 62, width = 150, unit = "mm")
 print("Panel 4b done.")
 
 # panel c plotting
@@ -326,6 +325,7 @@ neg.plot <- ggplot(Neg, aes(x = Time, y = Mean, color = Group)) +
                      labels = c("-0.60","-0.40","-0.20","0.00","0.20"),
                      expand = y.axis.expand) +
   scale_colour_manual(values = c("#0043B7", "#F5652D"), labels = c("Controllable", "Uncontrollable")) +
+  theme +
   labs(x = "Time (seconds)", y = "% signal change", title = NULL, legend = NULL) +
 
   ggsave(here("plots","Fig4-PanelC_Neg_ROIs.pdf"),dpi = 600, height=38, width = 158, unit = "mm")
@@ -358,11 +358,11 @@ print("Onto Figure 6!")
 # Figure 6 Insula plots
 
 # import data
-l.pINS <- read.csv('/Users/kellymorrow/Downloads/left_PI.1D', sep = '', header = FALSE,
+l.pINS <- read.csv(here('data/stressor_response_estimates','Fig6-left_PI.1D'), sep = '', header = FALSE,
                    col.names = c("Controllable", "Uncontrollable"))
 
 
-r.pINS <- read.csv('/Users/kellymorrow/Downloads/right_PI.1D', sep = '', header = FALSE,
+r.pINS <- read.csv(here('data/stressor_response_estimates','Fig6-right_PI.1D'), sep = '', header = FALSE,
                    col.names = c("Controllable", "Uncontrollable"))
 
 
@@ -421,14 +421,9 @@ print("Onto figure 7!")
 
 # Figure 7 plot
 
-
-df.shock <- read.csv('/Users/kellymorrow/Downloads/ShockRespVoxelwiseCluster.csv')
+df.shock <- read.table(here('data/stressor_response_estimates','Fig7-PCC.txt'), fill = TRUE, sep=",", header = TRUE)
 df.shock <- df.shock %>% gather(ROI, Response, 3:23)
-df.shock$ROI <- factor(df.shock$ROI)
-
-
-# Filter out r PCC & plot
-df.shock %>% filter(ROI == "R.Posterior.cingulate..cortex") %>%
+df.shock %>% filter(ROI == "R.Posterior.cingulate..cortex") %>%  # Filter out r PCC & plot
   mutate(ROI = recode(ROI, R.Posterior.cingulate..cortex = "r PCC")) %>%
   ggplot(aes(x = Time, y = Response, color = Group)) +
   coord_cartesian(ylim = c(-0.6,.2)) +
@@ -443,7 +438,7 @@ df.shock %>% filter(ROI == "R.Posterior.cingulate..cortex") %>%
                      expand = y.axis.expand) +
   scale_colour_manual(values = c("#0043B7", "#F5652D"), labels = c("Controllable", "Uncontrollable")) +
   labs(x = "Time (seconds)", y = "% signal change", color = NULL, title = "R PCC") +
-  theme()
+  theme
 
 ggsave(here("plots",'Fig7-PCC_plot.pdf'), height = 45, width = 45, unit = "mm", dpi = 600)
 
@@ -451,9 +446,9 @@ print("Figure 7 done, onto 8!")
 
 # Figure 8: Exploratory analysis plot
 
-explore <- read.table('/Users/kellymorrow/Box/Lab_related/EMOII/07b-estmated_response.txt', sep = ',', header = TRUE)
+explore <- read.table(here('data/stressor_response_estimates','Fig8-MFG.txt'), sep = ',', header = TRUE)
 
-df.shock %>% filter(ROI == "SupMidGyrus") %>%
+explore %>% filter(ROI == "SupMidGyrus") %>%
   mutate(ROI = recode(ROI, SupMidGyrus = "medial Frontal Gyrus")) %>%
   ggplot(aes(x = Time, y = Response, color = Group)) +
   geom_hline(yintercept = 0, linetype = "dashed", color = "dimgray", size = .75) +
