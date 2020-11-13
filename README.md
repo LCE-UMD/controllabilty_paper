@@ -17,8 +17,17 @@ R requirements:
             |-- STAT_score.txt                   <- State and Trait scores.
         |-- CON_yoked_table.xlsx                 <- Participant IDs and usable runs.
         |-- CON_yoked_table_SCR.xlsx
-        |-- estimated_shock_response.txt         <- stressor response estimates
+        |-- stressor_response_estimates
+            |-- Fig4.txt                         <- stressor response estimates
                                                     for 24 ROIs (paper: Figure 4).
+            |-- Fig6-left_PI.1D                  <- stressor response estimates 
+                                                    in left posterior insula.
+            |-- Fig6-right_PI.1D                 <- stressor response estimates
+                                                    in right posterior insula.
+            |-- Fig7-PCC.txt                     <- stressor response estimates
+                                                    in posterior cingulate cortex.
+            |-- Fig8-MFG                         <- stressor response estimates
+                                                    in middle frontal gyrus.
         |-- masks
             |-- emoproxII_ROIs_final.nii.gz      <- 24 ROI mask.
             |-- emoproxII_ROIs_final_info.txt    <- ROI information.
