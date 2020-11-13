@@ -188,11 +188,6 @@ BST.control <- BST %>%
   labs(
     x = NULL,
     y = NULL,
-    title = "Uncontrollable vs. Controllable stressor",
-    fill = "P+") +
-  labs(
-    x = NULL,
-    y = NULL,
     title = "Controllability",
     fill = "P+")
 
@@ -356,3 +351,5 @@ breaks <- c(-0.20, -0.10, 0, 0.10, 0.20)
 title <- "Button Presses"
 
 func(data,xMin,xMax,breaks,title)
+
+print("All posterior plots generated!")

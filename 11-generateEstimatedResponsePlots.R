@@ -19,76 +19,83 @@ y.axis.expand <- c(0.04, 0)
 
 
 scale_override <- function(which, scale) {
-  if(!is.numeric(which) || (length(which) != 1) || (which %% 1 != 0)) {
+  if (!is.numeric(which) || (length(which) != 1) || (which%%1 != 0)) {
     stop("which must be an integer of length 1")
   }
 
-  if(is.null(scale$aesthetics) || !any(c("x", "y") %in% scale$aesthetics)) {
+  if (is.null(scale$aesthetics) || !any(c("x", "y") %in% scale$aesthetics)) {
     stop("scale must be an x or y position scale")
   }
 
   structure(list(which = which, scale = scale), class = "scale_override")
 }
 
-#Next, we need to implement a version of init_scales() that looks for scale overrides and replaces the default scale with the overridden one. It’s a bit verbose, but because init_scales() isn’t really well-documented it’s hard to predict what gets called with what. I’m overriding FacetWrap here, but it could easily be FacetGrid.
+# Next, we need to implement a version of init_scales() that looks for scale
+# overrides and replaces the default scale with the overridden one.
+# It<e2><80><99>s a bit verbose, but because init_scales() isn<e2><80><99>t
+# really well-documented it<e2><80><99>s hard to predict what gets called with
+# what. I<e2><80><99>m overriding FacetWrap here, but it could easily be
+# FacetGrid.
 
-CustomFacetWrap <- ggproto(
-  "CustomFacetWrap", FacetWrap,
-  init_scales = function(self, layout, x_scale = NULL, y_scale = NULL, params) {
-    # make the initial x, y scales list
-    scales <- ggproto_parent(FacetWrap, self)$init_scales(layout, x_scale, y_scale, params)
+CustomFacetWrap <- ggproto("CustomFacetWrap", FacetWrap, init_scales = function(self,
+  layout, x_scale = NULL, y_scale = NULL, params) {
+  # make the initial x, y scales list
+  scales <- ggproto_parent(FacetWrap, self)$init_scales(layout, x_scale, y_scale,
+    params)
 
-    if(is.null(params$scale_overrides)) return(scales)
+  if (is.null(params$scale_overrides))
+    return(scales)
 
-    max_scale_x <- length(scales$x)
-    max_scale_y <- length(scales$y)
+  max_scale_x <- length(scales$x)
+  max_scale_y <- length(scales$y)
 
-    # ... do some modification of the scales$x and scales$y here based on params$scale_overrides
-    for(scale_override in params$scale_overrides) {
-      which <- scale_override$which
-      scale <- scale_override$scale
+  # ... do some modification of the scales$x and scales$y here based on
+  # params$scale_overrides
+  for (scale_override in params$scale_overrides) {
+    which <- scale_override$which
+    scale <- scale_override$scale
 
-      if("x" %in% scale$aesthetics) {
-        if(!is.null(scales$x)) {
-          if(which < 0 || which > max_scale_x) stop("Invalid index of x scale: ", which)
-          scales$x[[which]] <- scale$clone()
-        }
-      } else if("y" %in% scale$aesthetics) {
-        if(!is.null(scales$y)) {
-          if(which < 0 || which > max_scale_y) stop("Invalid index of y scale: ", which)
-          scales$y[[which]] <- scale$clone()
-        }
-      } else {
-        stop("Invalid scale")
+    if ("x" %in% scale$aesthetics) {
+      if (!is.null(scales$x)) {
+        if (which < 0 || which > max_scale_x)
+          stop("Invalid index of x scale: ", which)
+        scales$x[[which]] <- scale$clone()
       }
+    } else if ("y" %in% scale$aesthetics) {
+      if (!is.null(scales$y)) {
+        if (which < 0 || which > max_scale_y)
+          stop("Invalid index of y scale: ", which)
+        scales$y[[which]] <- scale$clone()
+      }
+    } else {
+      stop("Invalid scale")
     }
-
-    # return scales
-    scales
   }
-)
+
+  # return scales
+  scales
+})
 
 
-# Lastly, we need a constructor function. Unfortunately, facet_wrap() doesn’t let you specify a Facet class, so we have to hack the result of facet_wrap() so we can use the syntax that we are used to with the function.
+# Lastly, we need a constructor function. Unfortunately, facet_wrap()
+# doesn<e2><80><99>t let you specify a Facet class, so we have to hack the result
+# of facet_wrap() so we can use the syntax that we are used to with the function.
 
 facet_wrap_custom <- function(..., scale_overrides = NULL) {
   # take advantage of the sanitizing that happens in facet_wrap
   facet_super <- facet_wrap(...)
 
   # sanitize scale overrides
-  if(inherits(scale_overrides, "scale_override")) {
+  if (inherits(scale_overrides, "scale_override")) {
     scale_overrides <- list(scale_overrides)
-  } else if(!is.list(scale_overrides) ||
-            !all(vapply(scale_overrides, inherits, "scale_override", FUN.VALUE = logical(1)))) {
+  } else if (!is.list(scale_overrides) || !all(vapply(scale_overrides, inherits,
+    "scale_override", FUN.VALUE = logical(1)))) {
     stop("scale_overrides must be a scale_override object or a list of scale_override objects")
   }
 
   facet_super$params$scale_overrides <- scale_overrides
 
-  ggproto(NULL, CustomFacetWrap,
-          shrink = facet_super$shrink,
-          params = facet_super$params
-  )
+  ggproto(NULL, CustomFacetWrap, shrink = facet_super$shrink, params = facet_super$params)
 }
 
 
@@ -97,6 +104,7 @@ print("Thanks https://fishandwhistle.net/post/2018/modifying-facet-scales-in-ggp
 
 print("-----------------------------------------------------------------------------------------------------")
 print("Starting figure 4 panels...")
+
 
 #### Figure 4: Estimated stressor responses
 
@@ -469,5 +477,3 @@ print("Figure 8 done.")
 
 
 print("All estimated response plots have been generated!")
-
-
