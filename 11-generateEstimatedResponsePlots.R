@@ -1,5 +1,9 @@
-library(tidyverse)
+library(ggplot2)
+library(tidyr)
+library(tibble)
+library(dplyr)
 library(here)
+
 # plyr is also required but not front loaded because of conflicts with here package
 
 
@@ -111,7 +115,7 @@ print("Starting figure 4 panels...")
 
 # create average for each time point in each ROI for both groups (control/uncontrol)
 df <- df %>% group_by(ROI, Time, Group) %>%
-  dplyr::summarize(Mean = mean(Response, na.rm=TRUE))
+             dplyr::summarize(Mean = mean(Response, na.rm=TRUE))
 
 # 8 ROIs separated for panel A (those with highest effect for uncontrol > control)
 P.ROIs <- df %>% group_by(ROI) %>%
