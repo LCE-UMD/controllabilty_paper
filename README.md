@@ -61,7 +61,7 @@ covariates:
 ```
 $ python 02-extract_stressor_resp.py  
 ```
-Output: `data/uncon_v_con_stressor.txt`  
+Output: `data/ROIwise/uncon_v_con_stressor.txt`  
 
 The output contains following standardized covariates: 
 - TRAITmean: average trait scores of yoked participants.  
@@ -76,13 +76,13 @@ To run BML analysis
 ```
 $ Rscript 03-uncon_v_con_stressor.r
 ```
-Output: (R workspace) `results/uncon_v_con_stressor/results.RData`  
+Output: (R workspace) `results/ROIwise/uncon_v_con_stressor/results.RData`  
 
 To extract posteriors from the saved R workspace:
 ```
 $ Rscript 04-uncon_v_con_stressor_posteriors.r
 ```
-Outputs in `results/uncon_v_con_stressor/`:
+Outputs in `results/ROIwise/uncon_v_con_stressor/`:
 - ROI posteriors for __uncontrollability > controllability__ contrast (Paper: `Figure 3`): `Intercept_post.txt`  
 
 ## Brain-skin conductance correlation
@@ -92,7 +92,7 @@ To extract brain-skin conductance correlations for the 24 ROIs
 ```
 $ python 05-make_ROI_SCR_df.py  
 ```
-Output: `data/uncon_v_con_ROI_SCR_zscorr.txt`  
+Output: `data/ROIwise/uncon_v_con_ROI_SCR_zscorr.txt`  
 
 ### __BML analysis__
 To run BML analysis on the left and right BST-skin conductance correlations:
@@ -100,7 +100,7 @@ To run BML analysis on the left and right BST-skin conductance correlations:
 $ Rscript 06-uncon_v_con_ROI_SCR_zscorr.r
 ```
 
-Outputs in `results/uncon_v_con_ROI_SCR`:  
+Outputs in `results/ROIwise/uncon_v_con_ROI_SCR/`:  
 - (R workspace): `results.RData`  
 - Posterior for Left BST & skin conductance correlation (Paper: `Figure 5`): `uncon_v_con_lBST_SCR_corr.txt`  
 - Posterior for Right BST & skin conductance correlation (Paper: `Figure 5`): `uncon_v_con_rBST_SCR_corr.txt`  
