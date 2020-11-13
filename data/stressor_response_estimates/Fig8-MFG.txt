@@ -1,0 +1,73 @@
+Time,ROI,Group,Response
+0.0000,Left Posterior Insula,control,0.0245
+0.0000,Left Posterior Insula,uncontrol,-0.0039
+0.0000,Right Posterior Insula,control,0.0595
+0.0000,Right Posterior Insula,uncontrol,0.0126
+0.0000,SupMidGyrus,control,-0.0849
+0.0000,SupMidGyrus,uncontrol,-0.1541
+1.2500,Left Posterior Insula,control,-0.1418
+1.2500,Left Posterior Insula,uncontrol,0.0248
+1.2500,Right Posterior Insula,control,-0.1187
+1.2500,Right Posterior Insula,uncontrol,-0.0657
+1.2500,SupMidGyrus,control,-0.2431
+1.2500,SupMidGyrus,uncontrol,-0.2642
+2.5000,Left Posterior Insula,control,0.0381
+2.5000,Left Posterior Insula,uncontrol,0.0317
+2.5000,Right Posterior Insula,control,0.6466
+2.5000,Right Posterior Insula,uncontrol,0.4089
+2.5000,SupMidGyrus,control,-0.1485
+2.5000,SupMidGyrus,uncontrol,-0.3195
+3.7500,Left Posterior Insula,control,0.3885
+3.7500,Left Posterior Insula,uncontrol,0.2038
+3.7500,Right Posterior Insula,control,1.6986
+3.7500,Right Posterior Insula,uncontrol,0.9977
+3.7500,SupMidGyrus,control,0.0013
+3.7500,SupMidGyrus,uncontrol,-0.2631
+5.0000,Left Posterior Insula,control,0.3356
+5.0000,Left Posterior Insula,uncontrol,0.0643
+5.0000,Right Posterior Insula,control,1.8018
+5.0000,Right Posterior Insula,uncontrol,1.0548
+5.0000,SupMidGyrus,control,0.0255
+5.0000,SupMidGyrus,uncontrol,-0.2467
+6.2500,Left Posterior Insula,control,0.2209
+6.2500,Left Posterior Insula,uncontrol,-0.0002
+6.2500,Right Posterior Insula,control,1.4656
+6.2500,Right Posterior Insula,uncontrol,0.6800
+6.2500,SupMidGyrus,control,-0.0305
+6.2500,SupMidGyrus,uncontrol,-0.2516
+7.5000,Left Posterior Insula,control,0.0711
+7.5000,Left Posterior Insula,uncontrol,-0.1345
+7.5000,Right Posterior Insula,control,0.7524
+7.5000,Right Posterior Insula,uncontrol,0.2604
+7.5000,SupMidGyrus,control,-0.0428
+7.5000,SupMidGyrus,uncontrol,-0.2219
+8.7500,Left Posterior Insula,control,-0.0610
+8.7500,Left Posterior Insula,uncontrol,-0.1268
+8.7500,Right Posterior Insula,control,0.1332
+8.7500,Right Posterior Insula,uncontrol,-0.1121
+8.7500,SupMidGyrus,control,-0.0772
+8.7500,SupMidGyrus,uncontrol,-0.1858
+10.0000,Left Posterior Insula,control,-0.0538
+10.0000,Left Posterior Insula,uncontrol,-0.0910
+10.0000,Right Posterior Insula,control,-0.1725
+10.0000,Right Posterior Insula,uncontrol,-0.2420
+10.0000,SupMidGyrus,control,-0.0717
+10.0000,SupMidGyrus,uncontrol,-0.1471
+11.2500,Left Posterior Insula,control,-0.0899
+11.2500,Left Posterior Insula,uncontrol,-0.1274
+11.2500,Right Posterior Insula,control,-0.3141
+11.2500,Right Posterior Insula,uncontrol,-0.2701
+11.2500,SupMidGyrus,control,-0.0703
+11.2500,SupMidGyrus,uncontrol,-0.0890
+12.5000,Left Posterior Insula,control,-0.1032
+12.5000,Left Posterior Insula,uncontrol,-0.0103
+12.5000,Right Posterior Insula,control,-0.1699
+12.5000,Right Posterior Insula,uncontrol,-0.2155
+12.5000,SupMidGyrus,control,-0.0023
+12.5000,SupMidGyrus,uncontrol,-0.0483
+13.7500,Left Posterior Insula,control,-0.0790
+13.7500,Left Posterior Insula,uncontrol,-0.1596
+13.7500,Right Posterior Insula,control,-0.1722
+13.7500,Right Posterior Insula,uncontrol,-0.1322
+13.7500,SupMidGyrus,control,-0.0032
+13.7500,SupMidGyrus,uncontrol,-0.0385

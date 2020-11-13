@@ -1,0 +1,17 @@
+# mean from Cluster #1 from command
+#  3dClusterize -nosum -1Dformat -inset /home/climbach/Pessoa_Lab/emoprox2-BML/01-right-insula/right_PI.nii.gz -idat 0 -ithr 0 -NN 2 -clust_nvox 2 -bisided -0.0001 0.0001
+# From datasets
+#  con_estimated_shock_bucket2.nii.gz[0..11]
+#  uncon_estimated_shock_bucket2.nii.gz[0..11]
+     -0.0479027     -0.0403005
+      -0.162758      -0.143226
+        0.25665        0.19098
+       0.696352       0.586415
+       0.647193       0.596385
+       0.461829       0.386652
+       0.167066       0.118997
+     -0.0439047     -0.0694808
+       -0.14291      -0.149394
+      -0.160312      -0.184252
+      -0.151551      -0.150443
+       -0.10511      -0.138056
