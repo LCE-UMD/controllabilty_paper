@@ -1,6 +1,7 @@
 library(brms)
 library(tidyverse) # needed for data manipulation.
 
+# load the data table
 df <- read.table('data/ROIwise/uncon_v_con_stressor.txt',header = TRUE,sep = "\t")
 head(df)
 
