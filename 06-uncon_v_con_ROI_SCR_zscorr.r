@@ -1,5 +1,6 @@
 library(brms)
 library(tidyverse) # needed for data manipulation.
+library(parallel)
 
 # Create a result directory
 outdir <- "results/ROIwise/uncon_v_con_ROI_SCR"
