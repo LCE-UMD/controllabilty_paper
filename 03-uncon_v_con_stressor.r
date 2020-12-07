@@ -1,5 +1,6 @@
 library(brms)
 library(tidyverse) # needed for data manipulation.
+library(parallel)
 
 # load the data table
 df <- read.table('data/ROIwise/uncon_v_con_stressor.txt',header = TRUE,sep = "\t")
@@ -58,4 +59,4 @@ fm <- brm(modelForm,
           control = list(adapt_delta = 0.99, max_treedepth = 15))
 
 # Save the results as a RData file
-save.image(file=paset0(outdir,"/results.RData"))
+save.image(file=paste0(outdir,"/results.RData"))
